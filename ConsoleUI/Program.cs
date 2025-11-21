@@ -31,9 +31,46 @@ namespace ConsoleUI
              * Provide the implementations for the abstract methods
              * Only in the Motorcycle class will you override the virtual drive method
             */
+            List<Vehicle> vehicles = new List<Vehicle>();
 
             // Create a list of Vehicle called vehicles
+            Vehicle car1 = new Car()
+            { Year = 2020, Make = "Toyota", Model = "Camry", hasTrunk = true, numberOfDoors = 4
 
+            };
+
+            Vehicle car2 = new Car()
+            { Year = 2018, Make = "Honda", Model = "Civic", hasTrunk = true, numberOfDoors = 2
+
+            };
+
+            Vehicle motorcycle1 = new Motorcycle()
+            { Year = 2021, Make = "Harley-Davidson", Model = "Street 750", hasTwoWheels = true, motorcycleBrand = "Harley-Davidson"
+            };
+            Vehicle motorcycle2 = new Motorcycle()
+            { Year = 2019, Make = "Yamaha", Model = "MT-07", hasTwoWheels = true, motorcycleBrand = "Yamaha"
+            };
+
+
+            vehicles.Add(car1);
+            vehicles.Add(car2);
+            vehicles.Add(motorcycle1);
+            vehicles.Add(motorcycle2);
+            foreach(var vehicle in vehicles)
+            {
+                Console.WriteLine($"Year: {vehicle.Year}, Make: {vehicle.Make}, Model: {vehicle.Model}");
+                if(vehicle is Car car)
+                {
+                    Console.WriteLine($"Has Trunk: {car.hasTrunk}, Number of Doors: {car.numberOfDoors}");
+                    car.DriveAbstract();
+                }
+                else if(vehicle is Motorcycle motorcycle)
+                {
+                    Console.WriteLine($"Has Two Wheels: {motorcycle.hasTwoWheels}, Motorcycle Brand: {motorcycle.motorcycleBrand}");
+                    motorcycle.DriveAbstract();
+                    motorcycle.DriveVirtual();
+                }
+            }
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * 

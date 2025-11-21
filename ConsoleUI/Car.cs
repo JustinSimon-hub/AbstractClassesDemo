@@ -8,9 +8,12 @@ namespace ConsoleUI
 {
     public class Car : Vehicle
     {
-        public override void DriveAbstract()
+        public bool hasTrunk { get; set; }
+
+        public int numberOfDoors { get; set; }
+        public override  void DriveAbstract()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"The car has {numberOfDoors} and it is {hasTrunk} that it has a trunk.skrrrrrrrrrrrt");
         }
     }
 }

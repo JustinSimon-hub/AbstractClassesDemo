@@ -8,9 +8,17 @@ namespace ConsoleUI
 {
     public class Motorcycle : Vehicle
     {
+
+        public bool hasTwoWheels { get; set; }
+        public string motorcycleBrand { get; set; }
+
         public override void DriveAbstract()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"The motorcycle is a {motorcycleBrand} and it is {hasTwoWheels} that it has two wheels.vrooooooooooom");
+        }
+        public override void DriveVirtual()
+        {
+            base.DriveVirtual();
         }
     }
 }
